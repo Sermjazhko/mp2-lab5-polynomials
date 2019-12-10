@@ -19,13 +19,13 @@ public:
     pFirst = nullptr;
     size = 0;
   }
-  bool empty(); //проверка на пустоту
-  void add_elem(int deg, double number); //добавить элемент
-  void delete_elem(int pos); //удалить элемент
-  void sorting(); //отсортировать список
-  void output(); //вывести на экран (преобразованные степени)
+  bool empty();
+  void add_elem(int deg, double number); 
+  void delete_elem(int pos); 
+  void sorting(); 
+  void output();
   int get_size();
-  int get_elem_deg(int pos); //получить элемент
+  int get_elem_deg(int pos); 
   double get_elem_con(int pos);
   ~List()
   {
