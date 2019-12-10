@@ -6,7 +6,7 @@ bool List::empty()
 {
   return pFirst == nullptr;
 }
-void List::add_elem(int deg, double number) // добавить элемент
+void List::add_elem(int deg, double number) 
 {
   if (deg != 0 || number != 0)
   {
@@ -26,11 +26,11 @@ void List::add_elem(int deg, double number) // добавить элемент
     size++;
   }
 }
-void List::delete_elem(int pos) //удалять элемент с указанной позицией
+void List::delete_elem(int pos) 
 {
   link *p = pFirst;
   int count = 0;
-  if ( empty() || (pos >= size)) // список пуст или нет позиции
+  if ( empty() || (pos >= size))
     return;
   else
   {
@@ -40,14 +40,14 @@ void List::delete_elem(int pos) //удалять элемент с указанной позицией
       {
         if (pos == 0)
         {
-          link *pp = p->pNext; // с единственным элементом сработает
+          link *pp = p->pNext; 
           delete p;
           pFirst = pp;
           p = pp;
         }
         else
         {
-          link *pp = pFirst; //с последним сработает
+          link *pp = pFirst; 
           while (pp->pNext != p)
             pp = pp->pNext;
           pp->pNext = p->pNext;
@@ -78,7 +78,7 @@ void List::sorting()
         p = p->pNext;     
       while (pp != p->pNext)
         pp = pp->pNext;
-      position = i + 1; // позиция pp
+      position = i + 1; 
       while (pp != nullptr)
       {
         if (p->degree == pp->degree)
@@ -118,10 +118,10 @@ void List::sorting()
 void List::output()
 {
   link *p = pFirst;
-  cout << "Список: " << endl;
+  cout << "РЎРїРёСЃРѕРє: " << endl;
   while (p != nullptr)
   {
-    cout << "Степень: " <<  p->degree << " Константа: " << p->constant << endl; ;
+    cout << "РЎС‚РµРїРµРЅСЊ: " <<  p->degree << " РљРѕРЅСЃС‚Р°РЅС‚Р°: " << p->constant << endl; ;
     p = p->pNext;
   }
   cout << endl;
