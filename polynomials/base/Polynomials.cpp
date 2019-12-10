@@ -64,7 +64,7 @@ double Polynomials::point_calcul(double x, double y, double z)
   }
   return result;
 }
-string Polynomials::transformation(List &obj)                                                       //ÃĞÅÁÀÍÛÅ ÑÑÛËÊÈ, ÂÀØÓ Æ ÌÀÒÜ, ÄÂÀ ×ÀÑÀ ÏĞÎ***ÒÜ ÍÀ ÒÎ, ×ÒÎ İÒÎÒ ÃÀÍÄÎÍ ÓÄÀËßÅÒ ÏÀÌßÒÜ ÄÂÀÆÄÛ
+string Polynomials::transformation(List &obj)                                                   
 {
   //obj.output();
   string result = "0";
