@@ -12,32 +12,32 @@ class Polynomials
 {
   List polynomial;
 public:
-  Polynomials(string pol = "")  //разбор строки, который убил во мне человека
+  Polynomials(string pol = "") 
   {
-    int point = 100; // для степени
-    int symbol = 0, symbol_x = 0, symbol_y = 0, symbol_z = 0; //для буковок
-    double constant = 0; //константа
-    int degree = 0; //степень
-    int sign = 1;//знак
+    int point = 100; 
+    int symbol = 0, symbol_x = 0, symbol_y = 0, symbol_z = 0; 
+    double constant = 0; 
+    int degree = 0; 
+    int sign = 1;
     int comma = 0;
     char B[2] = { '+', '-' };
     char C[3] = { 'x','y','z' };
     unsigned int i = 0;
     while (i < pol.length())
     {
-      if (pol[i] == B[0] || pol[i] == B[1]) //если знак
+      if (pol[i] == B[0] || pol[i] == B[1]) 
       {
         if (pol[i] == B[0])
           sign = 1;
         else
           sign = -1;
-        if ((degree / (point*point) == 0) && (symbol_x != 0)) //для ленивой попы, которая не может поставить 1 после степени и написать x, y, z в правильном порядке
+        if ((degree / (point*point) == 0) && (symbol_x != 0)) 
           degree = degree + point * point;
-        if ((((degree % (point*point)) / point) == 0) && (symbol_y != 0))//шикарные формулы, потому что могу
+        if ((((degree % (point*point)) / point) == 0) && (symbol_y != 0))
           degree = degree + point;
         if ((degree % (point) == 0) && (symbol_z != 0))
           degree = degree + 1;
-        if (constant != 0 || degree != 0) //запись, если не первый элемент и не 0
+        if (constant != 0 || degree != 0) 
         {
           if (comma != 0)
           {
@@ -66,16 +66,16 @@ public:
         symbol_y = 0;
         symbol_z = 0;
       }
-      else //число или буковка
+      else //Г·ГЁГ±Г«Г® ГЁГ«ГЁ ГЎГіГЄГ®ГўГЄГ 
       {
         int number = check_number(pol[i]);
-        if (number != -1) //число  или точка/запятая
+        if (number != -1) 
         {
-          if (symbol != 0) //степень
+          if (symbol != 0) 
           {
             int help = degree / (point*point);
             if (symbol_x != 0)
-              degree = degree + (9 * help + number)*point*point; //ещё немного крутых формул
+              degree = degree + (9 * help + number)*point*point;
             help = (degree % (point*point)) / point;
             if (symbol_y != 0)
               degree = degree + (9 * help + number)*point;
@@ -83,15 +83,15 @@ public:
             if (symbol_z != 0)
               degree = degree + 9 * help + number;
           }
-          else //константа
+          else 
           {
             if (number != -2)
             {
               constant = constant * 10 + sign * number;
             }
-            else //точка
+            else //ГІГ®Г·ГЄГ 
             {
-              if (comma == 0)//учитывается только первая точка
+              if (comma == 0)
               {
                 int a = (int)constant;
                 int index = 0;
@@ -107,32 +107,32 @@ public:
             }
           }
         }
-        else //буковка
+        else 
         {
           if (constant == 0 && sign == 1)
             constant = 1;
           if (constant == 0 && sign == -1)
             constant = -1;
           symbol++;
-          if ((degree / (point*point) == 0) && (symbol_x != 0)) //вновь для ленивой попы, тут, если идут по порядку, например, xy2
+          if ((degree / (point*point) == 0) && (symbol_x != 0)) 
             degree = degree + point * point;
           if ((((degree % (point*point)) / point) == 0) && (symbol_y != 0))
             degree = degree + point;
           if ((degree % (point) == 0) && (symbol_z != 0))
             degree = degree + 1;
-          if (pol[i] == C[0]) //если х
+          if (pol[i] == C[0]) 
           {
             symbol_x++;
             symbol_y = 0;
             symbol_z = 0;
           }
-          if (pol[i] == C[1]) //если y
+          if (pol[i] == C[1]) 
           {
             symbol_y++;
             symbol_x = 0;
             symbol_z = 0;
           }
-          if (pol[i] == C[2]) //если z
+          if (pol[i] == C[2]) 
           {
             symbol_z++;
             symbol_x = 0;
@@ -142,7 +142,7 @@ public:
       }
       i++;
     }
-    if ((degree / (point*point) == 0) && (symbol_x != 0)) //для последнего элемента
+    if ((degree / (point*point) == 0) && (symbol_x != 0)) 
       degree = degree + point * point;
     if ((((degree % (point*point)) / point) == 0) && (symbol_y != 0))
       degree = degree + point;
